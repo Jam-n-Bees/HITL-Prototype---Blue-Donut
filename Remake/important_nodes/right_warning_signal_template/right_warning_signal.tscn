@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dgg5rl4w5di8w"]
+
+[ext_resource type="Script" uid="uid://bqv6ln5cws55x" path="res://Remake/important_nodes/right_warning_signal_template/right_warning_signal.gd" id="1_yoc04"]
+[ext_resource type="Texture2D" uid="uid://bf7w668eg6nk1" path="res://warning_sprites/warning blue.png" id="2_jau4a"]
+[ext_resource type="PackedScene" uid="uid://b46k0eafp2wpd" path="res://Remake/component_lib/syncronised_shuffle.tscn" id="3_dkqyh"]
+[ext_resource type="AudioStream" uid="uid://4kaaamic768t" path="res://audio/snd_mtt_prebomb.wav" id="4_dkqyh"]
+
+[node name="RightWarningSignal" type="CharacterBody2D" unique_id=462723471]
+script = ExtResource("1_yoc04")
+flicker_count = 6
+
+[node name="WarningToggleTimer" type="Timer" parent="." unique_id=563850917]
+wait_time = 0.09
+one_shot = true
+
+[node name="WarningSign" type="Sprite2D" parent="." unique_id=1218646603]
+visible = false
+position = Vector2(-679, 0)
+texture = ExtResource("2_jau4a")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1129503927]
+
+[node name="SyncronisedShuffle" parent="." unique_id=1030609877 instance=ExtResource("3_dkqyh")]
+
+[node name="WarningBlip" type="AudioStreamPlayer2D" parent="." unique_id=117480538]
+stream = ExtResource("4_dkqyh")
+
+[connection signal="timeout" from="WarningToggleTimer" to="." method="_on_warning_toggle_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
