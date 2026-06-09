@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://cgsny5gmdatyy"]
+
+[ext_resource type="Texture2D" uid="uid://dqdujooisv60c" path="res://icon.svg" id="1_37kl0"]
+
+[node name="Node2D" type="Node2D" unique_id=26683849]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1161849229]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.99999946, 0.88882196, 0.5433151, 1)
+
+[node name="Tracks" type="Node" parent="." unique_id=866598393]
+
+[node name="Floor" type="ColorRect" parent="Tracks" unique_id=1786580033]
+offset_top = 1020.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.30372843, 0.0005995166, 0.8049886, 1)
+
+[node name="TopTrack" type="ColorRect" parent="Tracks" unique_id=1823486434]
+offset_top = 300.0
+offset_right = 1920.0
+offset_bottom = 340.0
+color = Color(0.30372843, 0.0005995166, 0.8049886, 1)
+
+[node name="MiddleTrack" type="ColorRect" parent="Tracks" unique_id=1452236603]
+offset_top = 680.0
+offset_right = 1920.0
+offset_bottom = 720.0
+color = Color(0.30372843, 0.0005995166, 0.8049886, 1)
+
+[node name="Clutter" type="Node" parent="." unique_id=117686442]
+
+[node name="Barrel" type="ColorRect" parent="Clutter" unique_id=1092142206]
+offset_left = 413.0
+offset_top = 870.0
+offset_right = 563.0
+offset_bottom = 1020.0
+
+[node name="Storage Crate" type="ColorRect" parent="Clutter" unique_id=249512244]
+offset_left = 577.0
+offset_top = 870.0
+offset_right = 727.0
+offset_bottom = 1020.0
+
+[node name="Platform" type="Node" parent="." unique_id=648990927]
+
+[node name="PlatformLeft" type="ColorRect" parent="Platform" unique_id=1247742708]
+offset_left = 1052.0
+offset_top = 300.0
+offset_right = 1132.0
+offset_bottom = 380.0
+
+[node name="PlatformRight" type="ColorRect" parent="Platform" unique_id=1850255823]
+offset_left = 1370.0
+offset_top = 300.0
+offset_right = 1450.0
+offset_bottom = 380.0
+
+[node name="PlatformMid" type="ColorRect" parent="Platform" unique_id=439522058]
+offset_left = 1050.0
+offset_top = 300.0
+offset_right = 1370.0
+offset_bottom = 380.0
+
+[node name="Floor" type="Node" parent="." unique_id=239641488]
+
+[node name="PlatformLeft" type="ColorRect" parent="Floor" unique_id=1349018902]
+offset_left = 1052.0
+offset_top = 1015.0
+offset_right = 1132.0
+offset_bottom = 1095.0
+
+[node name="PlatformRight" type="ColorRect" parent="Floor" unique_id=832741229]
+offset_left = 1370.0
+offset_top = 1015.0
+offset_right = 1450.0
+offset_bottom = 1095.0
+
+[node name="PlatformMid" type="ColorRect" parent="Floor" unique_id=2020139851]
+offset_left = 1052.0
+offset_top = 1015.0
+offset_right = 1372.0
+offset_bottom = 1095.0
+
+[node name="Hazards" type="Node" parent="." unique_id=278672101]
+
+[node name="PlatformLeft" type="ColorRect" parent="Hazards" unique_id=1822307748]
+offset_left = 1052.0
+offset_top = 675.0
+offset_right = 1132.0
+offset_bottom = 755.0
+
+[node name="PlatformRight" type="ColorRect" parent="Hazards" unique_id=1183312665]
+offset_left = 1370.0
+offset_top = 675.0
+offset_right = 1450.0
+offset_bottom = 755.0
+
+[node name="PlatformMid" type="ColorRect" parent="Hazards" unique_id=604376193]
+offset_left = 1052.0
+offset_top = 675.0
+offset_right = 1372.0
+offset_bottom = 755.0
+
+[node name="Player" type="TextureRect" parent="." unique_id=820060546]
+offset_left = 28.0
+offset_top = 761.0
+offset_right = 284.0
+offset_bottom = 1017.0
+texture = ExtResource("1_37kl0")
+
+[node name="StrikeHazard(Dagger)" type="Node" parent="." unique_id=97205279]
+
+[node name="Backing" type="ColorRect" parent="StrikeHazard(Dagger)" unique_id=703752942]
+offset_left = 378.0
+offset_top = 334.0
+offset_right = 828.0
+offset_bottom = 684.0
+
+[node name="Bullseye" type="ColorRect" parent="StrikeHazard(Dagger)/Backing" unique_id=1215593803]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 76.0
+offset_right = 317.0
+offset_bottom = 276.0
+color = Color(0.8104969, 0, 0.24900466, 1)
+
+[node name="Projectiles" type="Node" parent="." unique_id=1056721978]
+
+[node name="FlyingFish" type="ColorRect" parent="Projectiles" unique_id=1915598599]
+offset_left = 1212.0
+offset_top = 65.0
+offset_right = 1362.0
+offset_bottom = 215.0
+
+[node name="Parrot" type="ColorRect" parent="Projectiles" unique_id=391267316]
+offset_left = 1386.0
+offset_top = 65.0
+offset_right = 1536.0
+offset_bottom = 215.0
+
+[node name="Thrown Rum" type="ColorRect" parent="Projectiles" unique_id=371952503]
+offset_left = 1590.0
+offset_top = 65.0
+offset_right = 1740.0
+offset_bottom = 215.0

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dc4oyohjd8iqh"]
+
+[ext_resource type="Script" uid="uid://dv7ud0fvg4k3t" path="res://Remake/component_lib_scripts/magnetism_range.gd" id="1_b8cke"]
+
+[node name="MagnetismRange" type="Area2D" unique_id=667213838]
+script = ExtResource("1_b8cke")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

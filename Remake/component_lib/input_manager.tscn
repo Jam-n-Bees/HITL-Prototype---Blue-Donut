@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dami8qhjnqcum"]
+
+[ext_resource type="Script" uid="uid://dgca4qm4md61a" path="res://Remake/component_lib_scripts/input_manager.gd" id="1_iwuen"]
+
+[node name="InputManager" type="Node2D" unique_id=1490805436]
+script = ExtResource("1_iwuen")

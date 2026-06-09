@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bxjovbotmr6ip"]
+
+[ext_resource type="Script" uid="uid://xxxcbrgdk873" path="res://breakable.gd" id="1_a12vh"]
+[ext_resource type="Texture2D" uid="uid://d0jg2erh4o6nx" path="res://box_sprites/rum-barrel-150.png" id="2_rdxsi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a12vh"]
+size = Vector2(114, 153)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ly4o0"]
+radius = 72.0
+height = 268.0
+
+[node name="Barrel" type="RigidBody2D" unique_id=2138054321 groups=["BreakableHitBox"]]
+script = ExtResource("1_a12vh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=671094209 groups=["BreakableHitBox"]]
+position = Vector2(3, -2.5)
+shape = SubResource("RectangleShape2D_a12vh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1706708944 groups=["BreakableHitBox"]]
+gravity_space_override = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2016912049 groups=["BreakableHitBox"]]
+shape = SubResource("CapsuleShape2D_ly4o0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=277065088]
+texture = ExtResource("2_rdxsi")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=829953203]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

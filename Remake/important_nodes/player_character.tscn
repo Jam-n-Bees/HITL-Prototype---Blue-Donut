@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ci3kunj7wo7yu"]
+
+[ext_resource type="Script" uid="uid://dchmujry30k5" path="res://Remake/player/player_character.gd" id="1_f3oub"]
+[ext_resource type="PackedScene" uid="uid://b46k0eafp2wpd" path="res://Remake/component_lib/syncronised_shuffle.tscn" id="2_iisrg"]
+[ext_resource type="PackedScene" uid="uid://dami8qhjnqcum" path="res://Remake/component_lib/input_manager.tscn" id="3_alj2c"]
+[ext_resource type="Texture2D" uid="uid://dqdujooisv60c" path="res://icon.svg" id="4_jn36n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdrv2"]
+radius = 59.0
+height = 124.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8bft"]
+radius = 64.0
+height = 130.0
+
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1164801238 node_paths=PackedStringArray("input_manager", "syncronised_shuffle")]
+script = ExtResource("1_f3oub")
+input_manager = NodePath("InputManager")
+syncronised_shuffle = NodePath("SyncronisedShuffle")
+
+[node name="SyncronisedShuffle" parent="." unique_id=1030609877 instance=ExtResource("2_iisrg")]
+
+[node name="InputManager" parent="." unique_id=1490805436 instance=ExtResource("3_alj2c")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745178153]
+texture = ExtResource("4_jn36n")
+
+[node name="PlayerPhysicalCollision" type="CollisionShape2D" parent="." unique_id=947234286]
+shape = SubResource("CapsuleShape2D_hdrv2")
+
+[node name="PlayerAreaCollision" type="Area2D" parent="." unique_id=1023196177 groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaCollision" unique_id=2113274968]
+shape = SubResource("CapsuleShape2D_s8bft")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c78ynp5rdr00v"]
+
+[ext_resource type="Script" uid="uid://dj1wcl03lupt0" path="res://cannon_ball_spawner.gd" id="1_7ifym"]
+[ext_resource type="AudioStream" uid="uid://4kaaamic768t" path="res://audio/snd_mtt_prebomb.wav" id="2_p2li6"]
+[ext_resource type="Texture2D" uid="uid://bf7w668eg6nk1" path="res://warning_sprites/warning blue.png" id="3_wt20l"]
+
+[node name="CannonSpawnAlert" type="CharacterBody2D" unique_id=2139291388]
+script = ExtResource("1_7ifym")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1159996185]
+stream = ExtResource("2_p2li6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185212522]
+position = Vector2(-186, 0)
+texture = ExtResource("3_wt20l")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=540252223]
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

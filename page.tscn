@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://by7cf7wceqmjj"]
+
+[ext_resource type="Script" uid="uid://b4v2sa188axt2" path="res://page.gd" id="1_7tx1s"]
+[ext_resource type="Texture2D" uid="uid://bn0fp2ioqb1f3" path="res://coin/Da_Rules.webp" id="2_phrhr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jjlhc"]
+radius = 75.026665
+
+[node name="Page" type="RigidBody2D" unique_id=1360347300]
+gravity_scale = 0.0
+script = ExtResource("1_7tx1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=259274163]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_phrhr")
+
+[node name="MagnetRange" type="Area2D" parent="." unique_id=1104283506]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetRange" unique_id=1687521891]
+shape = SubResource("CircleShape2D_jjlhc")
+
+[connection signal="area_entered" from="MagnetRange" to="." method="_on_magnet_range_area_entered"]

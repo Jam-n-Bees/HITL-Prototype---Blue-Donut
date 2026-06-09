@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://bgag8y3aoaffu"]
+
+[ext_resource type="Script" uid="uid://dqbgytkurmx6x" path="res://Remake/resource_storage/resource_scripts/page_data.gd" id="1_87i2q"]
+
+[resource]
+script = ExtResource("1_87i2q")

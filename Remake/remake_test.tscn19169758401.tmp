@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://cgj7muwekfo4k"]
+
+[ext_resource type="Script" uid="uid://dchmujry30k5" path="res://Remake/player/player_character.gd" id="1_lael2"]
+[ext_resource type="PackedScene" uid="uid://b46k0eafp2wpd" path="res://Remake/component_lib/syncronised_shuffle.tscn" id="1_p0a18"]
+[ext_resource type="Texture2D" uid="uid://dqdujooisv60c" path="res://icon.svg" id="2_hdrv2"]
+[ext_resource type="PackedScene" uid="uid://dami8qhjnqcum" path="res://Remake/component_lib/input_manager.tscn" id="4_uwy1r"]
+[ext_resource type="Script" uid="uid://dnnbdcf15iung" path="res://Remake/scene_parts/camera_mantle.gd" id="5_s8bft"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32fxy"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0a18"]
+size = Vector2(1784, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdrv2"]
+size = Vector2(17.270779, 26.5376)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdrv2"]
+radius = 59.0
+height = 124.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8bft"]
+radius = 64.0
+height = 130.0
+
+[node name="RemakeTest" type="Node2D" unique_id=1891000151]
+
+[node name="== Platforms ==" type="Node2D" parent="." unique_id=1749355582]
+
+[node name="BottomPlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=1603614203 groups=["Ground"]]
+position = Vector2(3, 931)
+scale = Vector2(25.56, 1)
+physics_material_override = SubResource("PhysicsMaterial_32fxy")
+
+[node name="ColorRect" type="ColorRect" parent="== Platforms ==/BottomPlatform" unique_id=160103463]
+offset_right = 1782.0
+offset_bottom = 126.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="== Platforms ==/BottomPlatform" unique_id=1105216813]
+position = Vector2(892, 63)
+shape = SubResource("RectangleShape2D_p0a18")
+
+[node name="MiddlePlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=378203655]
+position = Vector2(34, 591)
+scale = Vector2(353.32138, 1)
+
+[node name="ColorRect" type="ColorRect" parent="== Platforms ==/MiddlePlatform" unique_id=183772138]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="== Platforms ==/MiddlePlatform" unique_id=1829584870]
+position = Vector2(19.809372, 19.941467)
+scale = Vector2(2.338126, 1.5117068)
+shape = SubResource("RectangleShape2D_hdrv2")
+one_way_collision = true
+one_way_collision_margin = 35.0
+
+[node name="TopPlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=352477523 groups=["Ground"]]
+position = Vector2(34, 274)
+scale = Vector2(353.32138, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="== Platforms ==/TopPlatform" unique_id=754180716]
+position = Vector2(19.809372, 19.941467)
+scale = Vector2(2.338126, 1.5117068)
+shape = SubResource("RectangleShape2D_hdrv2")
+one_way_collision = true
+one_way_collision_margin = 35.0
+
+[node name="ColorRect" type="ColorRect" parent="== Platforms ==/TopPlatform" unique_id=1823809506]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player" type="RigidBody2D" parent="." unique_id=1866859122]
+position = Vector2(265, -12)
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="." unique_id=1914721949 node_paths=PackedStringArray("input_manager")]
+position = Vector2(265, -12)
+script = ExtResource("1_lael2")
+input_manager = NodePath("InputManager")
+
+[node name="SyncronisedShuffle" parent="PlayerCharacter" unique_id=2121307740 instance=ExtResource("1_p0a18")]
+
+[node name="InputManager" parent="PlayerCharacter" unique_id=1490805436 instance=ExtResource("4_uwy1r")]
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerCharacter" unique_id=756374127]
+texture = ExtResource("2_hdrv2")
+
+[node name="PlayerPhysicalCollision" type="CollisionShape2D" parent="PlayerCharacter" unique_id=891206470]
+shape = SubResource("CapsuleShape2D_hdrv2")
+
+[node name="PlayerAreaCollision" type="Area2D" parent="PlayerCharacter" unique_id=1040463111]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/PlayerAreaCollision" unique_id=57782837]
+shape = SubResource("CapsuleShape2D_s8bft")
+
+[node name="Camera Mantle" type="CharacterBody2D" parent="." unique_id=1053484338]
+script = ExtResource("5_s8bft")
+
+[node name="Camera2D" type="Camera2D" parent="Camera Mantle" unique_id=32107760]
+
+[node name="SyncronisedShuffle" parent="Camera Mantle" unique_id=924972541 instance=ExtResource("1_p0a18")]

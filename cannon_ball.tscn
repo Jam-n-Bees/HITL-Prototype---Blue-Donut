@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://2s7otiw87nqu"]
+
+[ext_resource type="Script" uid="uid://bktc7xsqokc43" path="res://cannonball.gd" id="1_k1y7j"]
+[ext_resource type="Texture2D" uid="uid://0gtkygwlnas2" path="res://box_sprites/cannon-ball-150.png" id="2_sepv1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2nvo"]
+radius = 83.38465
+
+[node name="CannonBall" type="CharacterBody2D" unique_id=648478199 groups=["CannonProjectile"]]
+scale = Vector2(1.3, 1.3)
+script = ExtResource("1_k1y7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2078691324]
+texture = ExtResource("2_sepv1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2107595468 groups=["CannonProjectile"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1623328259]
+shape = SubResource("CircleShape2D_d2nvo")

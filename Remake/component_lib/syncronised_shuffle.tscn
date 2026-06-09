@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b46k0eafp2wpd"]
+
+[ext_resource type="Script" uid="uid://c08esor7lmfqb" path="res://Remake/component_lib_scripts/syncronised_shuffle.gd" id="1_3a20j"]
+[ext_resource type="Resource" uid="uid://bxoea7hs87q06" path="res://Remake/resource_storage/resources/level_data.tres" id="2_vxgna"]
+
+[node name="SyncronisedShuffle" type="Node2D" unique_id=1030609877]
+script = ExtResource("1_3a20j")
+level_data_r = ExtResource("2_vxgna")

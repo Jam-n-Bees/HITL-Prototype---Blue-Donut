@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://debi6j164xqxc"]
+
+[ext_resource type="Texture2D" uid="uid://dqdujooisv60c" path="res://icon.svg" id="1_3qtvv"]
+[ext_resource type="Script" uid="uid://fgbov12ug6ff" path="res://character_body_2d.gd" id="1_obgam"]
+[ext_resource type="Script" uid="uid://cwwtvaj2yovt3" path="res://character_body_2d_2.gd" id="3_su6ss"]
+[ext_resource type="PackedScene" uid="uid://bxjovbotmr6ip" path="res://barrel.tscn" id="4_ly4o0"]
+[ext_resource type="PackedScene" uid="uid://c78ynp5rdr00v" path="res://cannon_spawn_alert.tscn" id="5_qo1cq"]
+[ext_resource type="PackedScene" uid="uid://by7cf7wceqmjj" path="res://page.tscn" id="6_sdmcc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_su6ss"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obgam"]
+size = Vector2(1784, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_su6ss"]
+size = Vector2(17.270779, 26.5376)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_su6ss"]
+radius = 46.0
+height = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4o0"]
+size = Vector2(150, 210)
+
+[node name="Node2D" type="Node2D" unique_id=288510802]
+
+[node name="== Platforms ==" type="Node2D" parent="." unique_id=233774228]
+
+[node name="BottomPlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=1183374967 groups=["Ground"]]
+position = Vector2(3, 931)
+scale = Vector2(25.56, 1)
+physics_material_override = SubResource("PhysicsMaterial_su6ss")
+
+[node name="ColorRect" type="ColorRect" parent="== Platforms ==/BottomPlatform" unique_id=1650333793]
+offset_right = 1782.0
+offset_bottom = 126.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="== Platforms ==/BottomPlatform" unique_id=2015678262]
+position = Vector2(892, 63)
+shape = SubResource("RectangleShape2D_obgam")
+
+[node name="MiddlePlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=1428256598]
+position = Vector2(34, 591)
+scale = Vector2(353.32138, 1)
+
+[node name="ColorRect" type="ColorRect" parent="== Platforms ==/MiddlePlatform" unique_id=1774966701]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="== Platforms ==/MiddlePlatform" unique_id=290555735]
+position = Vector2(19.809372, 19.941467)
+scale = Vector2(2.338126, 1.5117068)
+shape = SubResource("RectangleShape2D_su6ss")
+one_way_collision = true
+one_way_collision_margin = 35.0
+
+[node name="TopPlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=149063416]
+position = Vector2(34, 274)
+scale = Vector2(353.32138, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="== Platforms ==/TopPlatform" unique_id=1494205648]
+position = Vector2(19.809372, 19.941467)
+scale = Vector2(2.338126, 1.5117068)
+shape = SubResource("RectangleShape2D_su6ss")
+one_way_collision = true
+one_way_collision_margin = 35.0
+
+[node name="ColorRect" type="ColorRect" parent="== Platforms ==/TopPlatform" unique_id=1597595772]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=908763195 groups=["Player"]]
+position = Vector2(83, 106)
+script = ExtResource("1_obgam")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1689841512]
+texture = ExtResource("1_3qtvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=476847839 groups=["Player"]]
+shape = SubResource("CapsuleShape2D_su6ss")
+
+[node name="HitBox" type="Area2D" parent="Player" unique_id=1364594307 groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/HitBox" unique_id=436344718 groups=["Player"]]
+shape = SubResource("CapsuleShape2D_su6ss")
+
+[node name="DashHitBox" type="Area2D" parent="Player" unique_id=1076597291 groups=["PlayerAttackBox"]]
+position = Vector2(-1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/DashHitBox" unique_id=140493508 groups=["PlayerAttackBox"]]
+position = Vector2(63, -4)
+shape = SubResource("RectangleShape2D_ly4o0")
+
+[node name="Camera" type="CharacterBody2D" parent="." unique_id=150039840]
+position = Vector2(967, 471)
+motion_mode = 1
+script = ExtResource("3_su6ss")
+
+[node name="Camera2D" type="Camera2D" parent="Camera" unique_id=1434570644]
+process_callback = 0
+limit_enabled = false
+position_smoothing_enabled = true
+drag_left_margin = 1.0
+drag_top_margin = 1.0
+drag_right_margin = 1.0
+drag_bottom_margin = 1.0
+editor_draw_drag_margin = true
+
+[node name="== TestBarrels ==" type="Node2D" parent="." unique_id=1534800006]
+position = Vector2(155, 827)
+
+[node name="Barrel" parent="== TestBarrels ==" unique_id=787396792 instance=ExtResource("4_ly4o0")]
+position = Vector2(444, -77)
+
+[node name="Barrel2" parent="== TestBarrels ==" unique_id=896604611 instance=ExtResource("4_ly4o0")]
+position = Vector2(613, -78)
+
+[node name="Barrel3" parent="== TestBarrels ==" unique_id=1597481982 instance=ExtResource("4_ly4o0")]
+position = Vector2(781, -86)
+
+[node name="Barrel4" parent="== TestBarrels ==" unique_id=2138054321 instance=ExtResource("4_ly4o0")]
+position = Vector2(1856, -422)
+
+[node name="Barrel5" parent="== TestBarrels ==" unique_id=744790088 instance=ExtResource("4_ly4o0")]
+position = Vector2(2025, -423)
+
+[node name="Barrel6" parent="== TestBarrels ==" unique_id=1348467066 instance=ExtResource("4_ly4o0")]
+position = Vector2(2193, -431)
+
+[node name="Barrel7" parent="== TestBarrels ==" unique_id=1087866257 instance=ExtResource("4_ly4o0")]
+position = Vector2(2666, -830)
+
+[node name="Barrel8" parent="== TestBarrels ==" unique_id=687072898 instance=ExtResource("4_ly4o0")]
+position = Vector2(2835, -831)
+
+[node name="Barrel9" parent="== TestBarrels ==" unique_id=55074532 instance=ExtResource("4_ly4o0")]
+position = Vector2(3003, -839)
+
+[node name="== TestCannonBalls ==" type="Node2D" parent="." unique_id=675661465]
+
+[node name="CannonSpawnAlert" parent="== TestCannonBalls ==" unique_id=2139291388 instance=ExtResource("5_qo1cq")]
+position = Vector2(2231, 97)
+
+[node name="== Collectibles ==" type="Node2D" parent="." unique_id=390482624]
+
+[node name="Page" parent="== Collectibles ==" unique_id=1360347300 instance=ExtResource("6_sdmcc")]
+position = Vector2(898, 125)
+
+[node name="Page2" parent="== Collectibles ==" unique_id=2018515230 instance=ExtResource("6_sdmcc")]
+position = Vector2(1153, 478)
+
+[node name="Page3" parent="== Collectibles ==" unique_id=1333183989 instance=ExtResource("6_sdmcc")]
+position = Vector2(1299, 478)
+
+[node name="Page4" parent="== Collectibles ==" unique_id=367209455 instance=ExtResource("6_sdmcc")]
+position = Vector2(1453, 478)
+
+[node name="Page5" parent="== Collectibles ==" unique_id=510431200 instance=ExtResource("6_sdmcc")]
+position = Vector2(1005, 490)
+
+[connection signal="area_entered" from="Player/HitBox" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Player/HitBox" to="Player" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Player/DashHitBox" to="Player" method="_on_dash_hit_box_area_entered"]

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c6dnh3vw1xym7"]
+
+[ext_resource type="Script" uid="uid://dwd51x2bt4kyl" path="res://Remake/component_lib_scripts/collection_range.gd" id="1_2ooup"]
+[ext_resource type="Script" uid="uid://bko4y7qmuiyam" path="res://Remake/important_nodes/page_template/page_template.gd" id="1_5u4ai"]
+[ext_resource type="PackedScene" uid="uid://dc4oyohjd8iqh" path="res://Remake/component_lib/magnetism_range.tscn" id="2_fumfa"]
+[ext_resource type="Texture2D" uid="uid://bn0fp2ioqb1f3" path="res://coin/Da_Rules.webp" id="3_wxagn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dkcv5"]
+radius = 21.095022
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvlwg"]
+radius = 53.66772
+
+[node name="PageTemplate" type="CharacterBody2D" unique_id=1094379509 node_paths=PackedStringArray("ColRange")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_5u4ai")
+ColRange = NodePath("CollectionRange")
+
+[node name="CollectionRange" type="Area2D" parent="." unique_id=336593790]
+script = ExtResource("1_2ooup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionRange" unique_id=1202129309]
+shape = SubResource("CircleShape2D_dkcv5")
+
+[node name="MagnetismRange" parent="." unique_id=667213838 instance=ExtResource("2_fumfa")]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetismRange" unique_id=1183257305]
+shape = SubResource("CircleShape2D_fvlwg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=32601686]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_wxagn")
+
+[connection signal="area_entered" from="CollectionRange" to="CollectionRange" method="_on_area_entered"]

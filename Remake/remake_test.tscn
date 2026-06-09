@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://cgj7muwekfo4k"]
+
+[ext_resource type="Script" uid="uid://mt7tuwb47ch8" path="res://Remake/masters/masterofmasters/master_master.gd" id="1_fvlwg"]
+[ext_resource type="PackedScene" uid="uid://b46k0eafp2wpd" path="res://Remake/component_lib/syncronised_shuffle.tscn" id="1_p0a18"]
+[ext_resource type="PackedScene" uid="uid://ci3kunj7wo7yu" path="res://Remake/important_nodes/player_character.tscn" id="1_uwy1r"]
+[ext_resource type="Resource" uid="uid://bgag8y3aoaffu" path="res://Remake/resource_storage/resources/page_data.tres" id="2_dkcv5"]
+[ext_resource type="Script" uid="uid://jti3p5c6wrpt" path="res://Remake/masters/collectible_master/collectible_master.gd" id="4_s8bft"]
+[ext_resource type="PackedScene" uid="uid://c6dnh3vw1xym7" path="res://Remake/important_nodes/page_template/page_template.tscn" id="5_k8o7c"]
+[ext_resource type="Script" uid="uid://dnnbdcf15iung" path="res://Remake/scene_parts/camera_mantle.gd" id="5_s8bft"]
+[ext_resource type="Script" uid="uid://cwfdf1tjrf6oc" path="res://Remake/masters/UIMaster/ui_master.gd" id="7_fvlwg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32fxy"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0a18"]
+size = Vector2(1784, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdrv2"]
+size = Vector2(17.270779, 26.5376)
+
+[node name="RemakeTest" type="Node2D" unique_id=1891000151]
+
+[node name="MasterMaster" type="Node2D" parent="." unique_id=1728528743 node_paths=PackedStringArray("ui_master", "collectible_master")]
+script = ExtResource("1_fvlwg")
+ui_master = NodePath("UIMaster")
+collectible_master = NodePath("CollectibleMaster")
+page_data = ExtResource("2_dkcv5")
+
+[node name="PlayerCharacter" parent="MasterMaster" unique_id=1164801238 groups=["Player"] instance=ExtResource("1_uwy1r")]
+position = Vector2(286, 794)
+
+[node name="CameraMantle" type="CharacterBody2D" parent="MasterMaster" unique_id=1053484338]
+position = Vector2(0, 518)
+script = ExtResource("5_s8bft")
+
+[node name="Camera2D" type="Camera2D" parent="MasterMaster/CameraMantle" unique_id=32107760]
+
+[node name="SyncronisedShuffle" parent="MasterMaster/CameraMantle" unique_id=924972541 instance=ExtResource("1_p0a18")]
+position = Vector2(1, 0)
+
+[node name="CollectibleMaster" type="Node2D" parent="MasterMaster" unique_id=1324985133]
+script = ExtResource("4_s8bft")
+
+[node name="PageTemplate" parent="MasterMaster/CollectibleMaster" unique_id=1094379509 instance=ExtResource("5_k8o7c")]
+position = Vector2(1330, 781)
+
+[node name="PageTemplate2" parent="MasterMaster/CollectibleMaster" unique_id=1504472938 instance=ExtResource("5_k8o7c")]
+position = Vector2(1540, 776)
+
+[node name="PageTemplate3" parent="MasterMaster/CollectibleMaster" unique_id=1010840612 instance=ExtResource("5_k8o7c")]
+position = Vector2(1755, 780)
+
+[node name="PageTemplate4" parent="MasterMaster/CollectibleMaster" unique_id=1042530674 instance=ExtResource("5_k8o7c")]
+position = Vector2(1992, 778)
+
+[node name="PageTemplate5" parent="MasterMaster/CollectibleMaster" unique_id=2106482205 instance=ExtResource("5_k8o7c")]
+position = Vector2(2202, 773)
+
+[node name="PageTemplate6" parent="MasterMaster/CollectibleMaster" unique_id=99280941 instance=ExtResource("5_k8o7c")]
+position = Vector2(2417, 777)
+
+[node name="PageTemplate7" parent="MasterMaster/CollectibleMaster" unique_id=1687588069 instance=ExtResource("5_k8o7c")]
+position = Vector2(2717, 442)
+
+[node name="PageTemplate8" parent="MasterMaster/CollectibleMaster" unique_id=1113710096 instance=ExtResource("5_k8o7c")]
+position = Vector2(2927, 437)
+
+[node name="PageTemplate9" parent="MasterMaster/CollectibleMaster" unique_id=1616365420 instance=ExtResource("5_k8o7c")]
+position = Vector2(3142, 441)
+
+[node name="PageTemplate10" parent="MasterMaster/CollectibleMaster" unique_id=962733658 instance=ExtResource("5_k8o7c")]
+position = Vector2(3379, 439)
+
+[node name="PageTemplate11" parent="MasterMaster/CollectibleMaster" unique_id=1345809006 instance=ExtResource("5_k8o7c")]
+position = Vector2(3589, 434)
+
+[node name="PageTemplate12" parent="MasterMaster/CollectibleMaster" unique_id=998202155 instance=ExtResource("5_k8o7c")]
+position = Vector2(3804, 438)
+
+[node name="UIMaster" type="CanvasLayer" parent="MasterMaster" unique_id=2068496854 node_paths=PackedStringArray("page_bar", "colour_grade")]
+script = ExtResource("7_fvlwg")
+page_bar = NodePath("ProgressBar")
+page_data = ExtResource("2_dkcv5")
+colour_grade = NodePath("ColorRect")
+
+[node name="ProgressBar" type="ProgressBar" parent="MasterMaster/UIMaster" unique_id=1473997464]
+offset_left = 83.0
+offset_top = 37.0
+offset_right = 599.0
+offset_bottom = 148.0
+max_value = 50.0
+
+[node name="ColorRect" type="ColorRect" parent="MasterMaster/UIMaster" unique_id=195933731]
+offset_left = 629.0
+offset_top = 46.000008
+offset_right = 669.0
+offset_bottom = 86.00001
+scale = Vector2(1.2587895, 2.0143354)
+color = Color(0.9021549, 0, 0.38621542, 1)
+
+[node name="== Platforms ==" type="Node2D" parent="." unique_id=1749355582]
+
+[node name="BottomPlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=1603614203 groups=["Ground"]]
+position = Vector2(3, 931)
+scale = Vector2(25.56, 1)
+physics_material_override = SubResource("PhysicsMaterial_32fxy")
+
+[node name="ColorRect" type="ColorRect" parent="== Platforms ==/BottomPlatform" unique_id=160103463]
+offset_right = 1782.0
+offset_bottom = 126.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="== Platforms ==/BottomPlatform" unique_id=1105216813]
+position = Vector2(892, 63)
+shape = SubResource("RectangleShape2D_p0a18")
+
+[node name="MiddlePlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=378203655]
+position = Vector2(34, 591)
+scale = Vector2(353.32138, 1)
+
+[node name="ColorRect" type="ColorRect" parent="== Platforms ==/MiddlePlatform" unique_id=183772138]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="== Platforms ==/MiddlePlatform" unique_id=1829584870]
+position = Vector2(19.809372, 19.941467)
+scale = Vector2(2.338126, 1.5117068)
+shape = SubResource("RectangleShape2D_hdrv2")
+one_way_collision = true
+one_way_collision_margin = 35.0
+
+[node name="TopPlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=352477523 groups=["Ground"]]
+position = Vector2(34, 274)
+scale = Vector2(353.32138, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="== Platforms ==/TopPlatform" unique_id=754180716]
+position = Vector2(19.809372, 19.941467)
+scale = Vector2(2.338126, 1.5117068)
+shape = SubResource("RectangleShape2D_hdrv2")
+one_way_collision = true
+one_way_collision_margin = 35.0
+
+[node name="ColorRect" type="ColorRect" parent="== Platforms ==/TopPlatform" unique_id=1823809506]
+offset_right = 40.0
+offset_bottom = 40.0

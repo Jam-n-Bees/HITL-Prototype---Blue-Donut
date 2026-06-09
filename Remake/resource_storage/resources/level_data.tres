@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://bxoea7hs87q06"]
+
+[ext_resource type="Script" uid="uid://cyxjeqrl8suuv" path="res://Remake/resource_storage/resource_scripts/level_data.gd" id="1_3is2s"]
+
+[resource]
+script = ExtResource("1_3is2s")
