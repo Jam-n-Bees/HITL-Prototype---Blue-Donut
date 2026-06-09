@@ -99,6 +99,14 @@ offset_bottom = 86.00001
 scale = Vector2(1.2587895, 2.0143354)
 color = Color(0.9021549, 0, 0.38621542, 1)
 
+[node name="RightSpawnerMaster" type="Node2D" parent="MasterMaster" unique_id=253781049]
+
+[node name="RightWarningSignal" parent="MasterMaster" unique_id=462723471 instance=ExtResource("9_1741o")]
+position = Vector2(3011, 773)
+
+[node name="RightWarningSignal2" parent="MasterMaster" unique_id=1868817704 instance=ExtResource("9_1741o")]
+position = Vector2(3864, 152)
+
 [node name="== Platforms ==" type="Node2D" parent="." unique_id=1749355582]
 
 [node name="BottomPlatform" type="StaticBody2D" parent="== Platforms ==" unique_id=1603614203 groups=["Ground"]]
@@ -143,6 +151,3 @@ one_way_collision_margin = 35.0
 [node name="ColorRect" type="ColorRect" parent="== Platforms ==/TopPlatform" unique_id=1823809506]
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="RightWarningSignal" parent="." unique_id=462723471 instance=ExtResource("9_1741o")]
-position = Vector2(3567, 759)

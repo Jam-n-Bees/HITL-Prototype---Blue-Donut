@@ -4,12 +4,13 @@ extends CharacterBody2D
 @onready var warning_sprite : Sprite2D = $WarningSign
 @onready var shuffle : Node2D = $SyncronisedShuffle
 @onready var audio_player : AudioStreamPlayer2D = $WarningBlip
-@onready var audio_player_trigger : AudioStreamPlayer2D = $TriggerSound
+
 @export var flicker_count : int = 4
 var flicker_start : int = 0
 
 var warning_sprite_red = load("res://warning_sprites/warning red.png")
 var warning_sprite_blue = load("res://warning_sprites/warning blue.png")
+var threat = load("res://cannon_ball.tscn")
 
 var blue : bool = false
 var active : bool = false
@@ -46,7 +47,7 @@ func _on_warning_toggle_timer_timeout() -> void:
 		toggle_timer.start()
 	else:
 		flicker()
-		audio_player_trigger.play()
+		spawn_threat()
 		
 func flicker():
 	flicker_start += 1
@@ -54,4 +55,12 @@ func flicker():
 		warning_sprite.texture = warning_sprite_blue
 	if flicker_start % 2 == 0:
 		warning_sprite.texture = warning_sprite_red
+		
+		
+func spawn_threat():
+	var instance = threat.instantiate()
+	get_parent().add_child(instance)
+	instance.global_position = self.global_position
+	instance.global_position.x += 300
+	queue_free()
 	
