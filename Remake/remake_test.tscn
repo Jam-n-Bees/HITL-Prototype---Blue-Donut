@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c6dnh3vw1xym7" path="res://Remake/important_nodes/page_template/page_template.tscn" id="5_k8o7c"]
 [ext_resource type="Script" uid="uid://dnnbdcf15iung" path="res://Remake/scene_parts/camera_mantle.gd" id="5_s8bft"]
 [ext_resource type="Script" uid="uid://cwfdf1tjrf6oc" path="res://Remake/masters/UIMaster/ui_master.gd" id="7_fvlwg"]
+[ext_resource type="PackedScene" uid="uid://dgg5rl4w5di8w" path="res://Remake/important_nodes/right_warning_signal_template/right_warning_signal.tscn" id="9_1741o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32fxy"]
 friction = 0.0
@@ -142,3 +143,6 @@ one_way_collision_margin = 35.0
 [node name="ColorRect" type="ColorRect" parent="== Platforms ==/TopPlatform" unique_id=1823809506]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="RightWarningSignal" parent="." unique_id=462723471 instance=ExtResource("9_1741o")]
+position = Vector2(3567, 759)
