@@ -21,4 +21,4 @@ func page_collected():
 	print(page_data.current_page_amount)
 	
 func player_damage_taken(bonk):
-	print("bonk", bonk)
+	print(bonk, " damage taken!")

@@ -78,11 +78,12 @@ position = Vector2(3589, 434)
 [node name="PageTemplate12" parent="MasterMaster/CollectibleMaster" unique_id=998202155 instance=ExtResource("5_k8o7c")]
 position = Vector2(3804, 438)
 
-[node name="UIMaster" type="CanvasLayer" parent="MasterMaster" unique_id=2068496854 node_paths=PackedStringArray("page_bar", "colour_grade")]
+[node name="UIMaster" type="CanvasLayer" parent="MasterMaster" unique_id=2068496854 node_paths=PackedStringArray("page_bar", "colour_grade", "hp_bar")]
 script = ExtResource("7_fvlwg")
 page_bar = NodePath("ProgressBar")
 page_data = ExtResource("2_dkcv5")
 colour_grade = NodePath("ColorRect")
+hp_bar = NodePath("HPBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="MasterMaster/UIMaster" unique_id=1473997464]
 offset_left = 83.0

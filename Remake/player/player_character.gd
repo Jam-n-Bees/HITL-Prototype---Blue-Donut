@@ -19,7 +19,6 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	incoming_damage.emit(test_dmg)
 	velocity.y += gravity
 	move_and_slide()
 	if is_on_floor():
@@ -42,3 +41,9 @@ func am_moving():
 	
 func am_not_moving():
 	syncronised_shuffle.moving = false
+
+
+func _on_player_area_hit_something(area: Area2D) -> void:
+	if area.is_in_group("CannonProjectile"):
+		incoming_damage.emit(test_dmg)
+		

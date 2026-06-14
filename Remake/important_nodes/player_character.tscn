@@ -32,3 +32,5 @@ shape = SubResource("CapsuleShape2D_hdrv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaCollision" unique_id=2113274968]
 shape = SubResource("CapsuleShape2D_s8bft")
+
+[connection signal="area_entered" from="PlayerAreaCollision" to="." method="_on_player_area_hit_something"]

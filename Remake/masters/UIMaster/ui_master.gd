@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var page_bar : ProgressBar
 @export var page_data : Resource
 @export var colour_grade : ColorRect
+@export var hp_bar : ProgressBar
 
 func _process(delta: float) -> void:
 	page_bar.value = page_data.current_page_amount
