@@ -17,10 +17,19 @@ height = 130.0
 radius = 64.0
 height = 130.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3oub"]
+size = Vector2(143.5, 162.5)
+
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1164801238 node_paths=PackedStringArray("input_manager", "syncronised_shuffle") groups=["Player"]]
 script = ExtResource("1_f3oub")
 input_manager = NodePath("InputManager")
 syncronised_shuffle = NodePath("SyncronisedShuffle")
+
+[node name="== Timers ==" type="Node2D" parent="." unique_id=814570762]
+
+[node name="SlideTimer" type="Timer" parent="== Timers ==" unique_id=573460412]
+wait_time = 0.55
+one_shot = true
 
 [node name="SyncronisedShuffle" parent="." unique_id=1030609877 instance=ExtResource("2_iisrg")]
 
@@ -30,6 +39,7 @@ syncronised_shuffle = NodePath("SyncronisedShuffle")
 texture = ExtResource("4_jn36n")
 
 [node name="PCCollisionDefault" type="CollisionShape2D" parent="." unique_id=947234286]
+visible = false
 shape = SubResource("CapsuleShape2D_hdrv2")
 disabled = true
 
@@ -39,6 +49,7 @@ scale = Vector2(1, 0.5)
 texture = ExtResource("4_jn36n")
 
 [node name="PCCollisionSliding" type="CollisionShape2D" parent="." unique_id=1613323288]
+visible = false
 position = Vector2(0, 31)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_s8bft")
@@ -49,4 +60,11 @@ shape = SubResource("CapsuleShape2D_s8bft")
 visible = false
 shape = SubResource("CapsuleShape2D_f3oub")
 
+[node name="SlideTackle" type="Area2D" parent="." unique_id=546619194]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlideTackle" unique_id=139038695]
+position = Vector2(76.75, -5.25)
+shape = SubResource("RectangleShape2D_f3oub")
+
+[connection signal="timeout" from="== Timers ==/SlideTimer" to="." method="_on_slide_timer_timeout"]
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_player_area_hit_something"]

@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @onready var default_pose : Array = [$SpriteDefault, $PCCollisionDefault]
 @onready var sliding_pose : Array = [$SpriteSliding, $PCCollisionSliding]
+@onready var slide_tackle_area := $SlideTackle/CollisionShape2D
+@onready var slide_timer := $"== Timers ==/SlideTimer"
 
 signal incoming_damage (inc_dmg)
 var test_dmg := 5
@@ -12,14 +14,16 @@ var test_dmg := 5
 var gravity : float = 85
 var on_floor : bool = false
 var lockout : bool = false
+var dashing : bool = false
 
 func _ready() -> void:
 	unsquish()
+	slide_tackle_area.disabled = true
 	input_manager.space_pressed.connect(jump)
 	input_manager.left_held.connect(move_left)
 	input_manager.right_held.connect(move_right)
-	input_manager.down_pressed.connect(squish)
-	input_manager.down_released.connect(unsquish)
+	input_manager.down_pressed.connect(slide_tackle)
+	#input_manager.down_released.connect(unsquish)
 	input_manager.h_moving.connect(am_moving)
 	input_manager.not_h_moving.connect(am_not_moving)
 	
@@ -84,3 +88,27 @@ func squish():
 			i.visible = true
 		if i.get_class() == "CollisionShape2D":
 			i.disabled = false
+
+func slide_tackle():
+	if !dashing:
+		slide_timer.start()
+		lockout = true
+		dashing = true
+		syncronised_shuffle.dashing = true
+		syncronised_shuffle.max_speed_modifier += 100
+		syncronised_shuffle.player_modifier += 200
+		squish()
+		slide_tackle_area.disabled = false
+	else:
+		self.global_position.y += 5
+
+
+
+func _on_slide_timer_timeout() -> void:
+	lockout = false
+	syncronised_shuffle.dashing = false
+	dashing = false
+	syncronised_shuffle.max_speed_modifier -= 100
+	#syncronised_shuffle.player_modifier -= 100
+	unsquish()
+	slide_tackle_area.disabled = true
