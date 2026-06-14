@@ -4,8 +4,12 @@ extends Node2D
 @export var collectible_master : Node2D
 @export var page_data : Resource
 
+@onready var pc := $PlayerCharacter
+
 func _ready() -> void:
 	collectible_master.tell_master_page_collected.connect(page_collected)
+	
+	pc.incoming_damage.connect(player_damage_taken)
 
 
 func page_collected():
@@ -16,3 +20,5 @@ func page_collected():
 		
 	print(page_data.current_page_amount)
 	
+func player_damage_taken(bonk):
+	print("bonk", bonk)

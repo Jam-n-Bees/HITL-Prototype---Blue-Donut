@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var input_manager : Node2D
 @export var syncronised_shuffle : Node2D
 
+signal incoming_damage (inc_dmg)
+var test_dmg := 5
+
 var gravity : float = 85
 var on_floor : bool = false
 
@@ -12,8 +15,11 @@ func _ready() -> void:
 	input_manager.right_held.connect(move_right)
 	input_manager.h_moving.connect(am_moving)
 	input_manager.not_h_moving.connect(am_not_moving)
+	
+	
 
 func _physics_process(delta: float) -> void:
+	incoming_damage.emit(test_dmg)
 	velocity.y += gravity
 	move_and_slide()
 	if is_on_floor():

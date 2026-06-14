@@ -99,12 +99,21 @@ offset_bottom = 86.00001
 scale = Vector2(1.2587895, 2.0143354)
 color = Color(0.9021549, 0, 0.38621542, 1)
 
+[node name="HPBar" type="ProgressBar" parent="MasterMaster/UIMaster" unique_id=1645833445]
+offset_left = 81.0
+offset_top = 163.0
+offset_right = 597.0
+offset_bottom = 213.0
+max_value = 10.0
+step = 1.0
+value = 10.0
+
 [node name="RightSpawnerMaster" type="Node2D" parent="MasterMaster" unique_id=253781049]
 
-[node name="RightWarningSignal" parent="MasterMaster" unique_id=462723471 instance=ExtResource("9_1741o")]
+[node name="RightWarningSignal" parent="MasterMaster/RightSpawnerMaster" unique_id=462723471 instance=ExtResource("9_1741o")]
 position = Vector2(3011, 773)
 
-[node name="RightWarningSignal2" parent="MasterMaster" unique_id=1868817704 instance=ExtResource("9_1741o")]
+[node name="RightWarningSignal2" parent="MasterMaster/RightSpawnerMaster" unique_id=1868817704 instance=ExtResource("9_1741o")]
 position = Vector2(3864, 152)
 
 [node name="== Platforms ==" type="Node2D" parent="." unique_id=1749355582]
