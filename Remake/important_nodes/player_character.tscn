@@ -13,7 +13,7 @@ height = 124.0
 radius = 64.0
 height = 130.0
 
-[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1164801238 node_paths=PackedStringArray("input_manager", "syncronised_shuffle")]
+[node name="PlayerCharacter" type="CharacterBody2D" unique_id=1164801238 node_paths=PackedStringArray("input_manager", "syncronised_shuffle") groups=["Player"]]
 script = ExtResource("1_f3oub")
 input_manager = NodePath("InputManager")
 syncronised_shuffle = NodePath("SyncronisedShuffle")

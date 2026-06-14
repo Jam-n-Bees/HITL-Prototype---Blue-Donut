@@ -12,6 +12,16 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if (get_parent().is_in_group("Player")):
+		if (get_parent().lockout):
+			pass
+		else:
+			move_calc()
+	else:
+		move_calc()
+
+
+func move_calc():
 	get_parent().velocity.x = level_data_r.base_velocity + player_modifier
 	
 	if !moving && player_modifier != 0:

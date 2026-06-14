@@ -8,6 +8,7 @@ var test_dmg := 5
 
 var gravity : float = 85
 var on_floor : bool = false
+var lockout : bool = false
 
 func _ready() -> void:
 	input_manager.space_pressed.connect(jump)
@@ -23,6 +24,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if is_on_floor():
 		on_floor = true
+		lockout = false
 	else:
 		on_floor = false
 
@@ -45,5 +47,8 @@ func am_not_moving():
 
 func _on_player_area_hit_something(area: Area2D) -> void:
 	if area.is_in_group("CannonProjectile"):
+		lockout = true
 		incoming_damage.emit(test_dmg)
+		velocity.y = -1400
+		velocity.x = 200
 		
