@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var input_manager : Node2D
 @export var syncronised_shuffle : Node2D
 
+
 signal incoming_damage (inc_dmg)
 var test_dmg := 5
 
