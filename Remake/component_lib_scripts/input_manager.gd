@@ -11,6 +11,8 @@ signal right_held
 signal space_pressed
 signal space_held
 
+signal down_released
+
 signal h_moving
 signal not_h_moving
 
@@ -37,6 +39,15 @@ func _physics_process(delta: float) -> void:
 		emit_signal("space_pressed")
 	if Input.is_action_pressed("Space"):
 		emit_signal("space_held")
+		
+	if Input.is_action_just_released("Down"):
+		emit_signal("down_released")
+	## NOTE Do the rest of this later I can't be assed right now and it's not neccesary. 
+	## If I need to come back here more than once I'll do the whole thing but like
+	## right now who can be assed-
+		
+		
+	
 		
 	if (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")) && !moving:
 		emit_signal("h_moving")

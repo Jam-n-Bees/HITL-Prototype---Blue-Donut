@@ -10,6 +10,10 @@ radius = 59.0
 height = 124.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8bft"]
+radius = 30.999996
+height = 130.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3oub"]
 radius = 64.0
 height = 130.0
 
@@ -22,15 +26,27 @@ syncronised_shuffle = NodePath("SyncronisedShuffle")
 
 [node name="InputManager" parent="." unique_id=1490805436 instance=ExtResource("3_alj2c")]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745178153]
+[node name="SpriteDefault" type="Sprite2D" parent="." unique_id=1745178153]
 texture = ExtResource("4_jn36n")
 
-[node name="PlayerPhysicalCollision" type="CollisionShape2D" parent="." unique_id=947234286]
+[node name="PCCollisionDefault" type="CollisionShape2D" parent="." unique_id=947234286]
 shape = SubResource("CapsuleShape2D_hdrv2")
+disabled = true
 
-[node name="PlayerAreaCollision" type="Area2D" parent="." unique_id=1023196177 groups=["Player"]]
+[node name="SpriteSliding" type="Sprite2D" parent="." unique_id=1295752461]
+position = Vector2(0, 31)
+scale = Vector2(1, 0.5)
+texture = ExtResource("4_jn36n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaCollision" unique_id=2113274968]
+[node name="PCCollisionSliding" type="CollisionShape2D" parent="." unique_id=1613323288]
+position = Vector2(0, 31)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_s8bft")
 
-[connection signal="area_entered" from="PlayerAreaCollision" to="." method="_on_player_area_hit_something"]
+[node name="PlayerArea" type="Area2D" parent="." unique_id=1023196177 groups=["Player"]]
+
+[node name="PickUpDetectionArea" type="CollisionShape2D" parent="PlayerArea" unique_id=2113274968]
+visible = false
+shape = SubResource("CapsuleShape2D_f3oub")
+
+[connection signal="area_entered" from="PlayerArea" to="." method="_on_player_area_hit_something"]
