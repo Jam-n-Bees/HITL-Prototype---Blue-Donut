@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dnnbdcf15iung" path="res://Remake/scene_parts/camera_mantle.gd" id="5_s8bft"]
 [ext_resource type="Script" uid="uid://cwfdf1tjrf6oc" path="res://Remake/masters/UIMaster/ui_master.gd" id="7_fvlwg"]
 [ext_resource type="PackedScene" uid="uid://dgg5rl4w5di8w" path="res://Remake/important_nodes/right_warning_signal_template/right_warning_signal.tscn" id="9_1741o"]
+[ext_resource type="Resource" uid="uid://dokjhfvlpex2e" path="res://Remake/resource_storage/resources/player_character_data.tres" id="9_babdn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32fxy"]
 friction = 0.0
@@ -26,8 +27,9 @@ script = ExtResource("1_fvlwg")
 ui_master = NodePath("UIMaster")
 collectible_master = NodePath("CollectibleMaster")
 page_data = ExtResource("2_dkcv5")
+pc_data = ExtResource("9_babdn")
 
-[node name="PlayerCharacter" parent="MasterMaster" unique_id=1164801238 groups=["Player"] instance=ExtResource("1_uwy1r")]
+[node name="PlayerCharacter" parent="MasterMaster" unique_id=1164801238 instance=ExtResource("1_uwy1r")]
 position = Vector2(286, 794)
 
 [node name="CameraMantle" type="CharacterBody2D" parent="MasterMaster" unique_id=1053484338]
@@ -78,11 +80,13 @@ position = Vector2(3589, 434)
 [node name="PageTemplate12" parent="MasterMaster/CollectibleMaster" unique_id=998202155 instance=ExtResource("5_k8o7c")]
 position = Vector2(3804, 438)
 
-[node name="UIMaster" type="CanvasLayer" parent="MasterMaster" unique_id=2068496854 node_paths=PackedStringArray("page_bar", "colour_grade")]
+[node name="UIMaster" type="CanvasLayer" parent="MasterMaster" unique_id=2068496854 node_paths=PackedStringArray("page_bar", "colour_grade", "hp_bar")]
 script = ExtResource("7_fvlwg")
 page_bar = NodePath("ProgressBar")
 page_data = ExtResource("2_dkcv5")
 colour_grade = NodePath("ColorRect")
+hp_bar = NodePath("HPBar")
+pc_data = ExtResource("9_babdn")
 
 [node name="ProgressBar" type="ProgressBar" parent="MasterMaster/UIMaster" unique_id=1473997464]
 offset_left = 83.0
@@ -99,12 +103,21 @@ offset_bottom = 86.00001
 scale = Vector2(1.2587895, 2.0143354)
 color = Color(0.9021549, 0, 0.38621542, 1)
 
+[node name="HPBar" type="ProgressBar" parent="MasterMaster/UIMaster" unique_id=1645833445]
+offset_left = 81.0
+offset_top = 163.0
+offset_right = 597.0
+offset_bottom = 213.0
+max_value = 10.0
+step = 1.0
+value = 10.0
+
 [node name="RightSpawnerMaster" type="Node2D" parent="MasterMaster" unique_id=253781049]
 
-[node name="RightWarningSignal" parent="MasterMaster" unique_id=462723471 instance=ExtResource("9_1741o")]
+[node name="RightWarningSignal" parent="MasterMaster/RightSpawnerMaster" unique_id=462723471 instance=ExtResource("9_1741o")]
 position = Vector2(3011, 773)
 
-[node name="RightWarningSignal2" parent="MasterMaster" unique_id=1868817704 instance=ExtResource("9_1741o")]
+[node name="RightWarningSignal2" parent="MasterMaster/RightSpawnerMaster" unique_id=1868817704 instance=ExtResource("9_1741o")]
 position = Vector2(3864, 152)
 
 [node name="== Platforms ==" type="Node2D" parent="." unique_id=1749355582]

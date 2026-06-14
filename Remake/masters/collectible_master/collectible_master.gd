@@ -9,4 +9,4 @@ func _ready() -> void:
 
 func page_collected():
 	emit_signal("tell_master_page_collected")
-	print("Collected!")
+	#print("Collected!")

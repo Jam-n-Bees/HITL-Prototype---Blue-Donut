@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HITL_Prototype"
-run/main_scene="uid://debi6j164xqxc"
+run/main_scene="uid://cgj7muwekfo4k"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
