@@ -15,6 +15,7 @@ var gravity : float = 85
 var on_floor : bool = false
 var lockout : bool = false
 var dashing : bool = false
+var acceleration_multiplier : float = 1
 
 func _ready() -> void:
 	unsquish()
@@ -30,6 +31,11 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	print("Acceleration : ",acceleration_multiplier, " Velocity.x : ", velocity.x)
+	if acceleration_multiplier != 1:
+		acceleration_multiplier = move_toward(acceleration_multiplier, 1, 1 * delta)
+		
+	
 	velocity.y += gravity
 	move_and_slide()
 	if is_on_floor():
@@ -43,10 +49,10 @@ func jump():
 		velocity.y = -2200
 
 func move_left():
-	syncronised_shuffle.player_modifier -= 40
+	syncronised_shuffle.player_modifier -= (40 * acceleration_multiplier)
 
 func move_right():
-	syncronised_shuffle.player_modifier += 40
+	syncronised_shuffle.player_modifier += (40 * acceleration_multiplier)
 	
 func am_moving():
 	syncronised_shuffle.moving = true
@@ -61,6 +67,11 @@ func _on_player_area_hit_something(area: Area2D) -> void:
 		incoming_damage.emit(test_dmg)
 		velocity.y = -1400
 		velocity.x = 200
+	
+	if area.is_in_group("BreakableHitBox"):
+		velocity.x -= 1000
+		syncronised_shuffle.player_modifier -= 300
+		acceleration_multiplier = 0
 		
 
 func unsquish():

@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cwfdf1tjrf6oc" path="res://Remake/masters/UIMaster/ui_master.gd" id="7_fvlwg"]
 [ext_resource type="PackedScene" uid="uid://dgg5rl4w5di8w" path="res://Remake/important_nodes/right_warning_signal_template/right_warning_signal.tscn" id="9_1741o"]
 [ext_resource type="Resource" uid="uid://dokjhfvlpex2e" path="res://Remake/resource_storage/resources/player_character_data.tres" id="9_babdn"]
+[ext_resource type="PackedScene" uid="uid://bxjovbotmr6ip" path="res://barrel.tscn" id="11_et0cn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32fxy"]
 friction = 0.0
@@ -30,7 +31,7 @@ page_data = ExtResource("2_dkcv5")
 pc_data = ExtResource("9_babdn")
 
 [node name="PlayerCharacter" parent="MasterMaster" unique_id=1164801238 instance=ExtResource("1_uwy1r")]
-position = Vector2(286, 794)
+position = Vector2(868, 483)
 
 [node name="CameraMantle" type="CharacterBody2D" parent="MasterMaster" unique_id=1053484338]
 position = Vector2(0, 518)
@@ -61,24 +62,6 @@ position = Vector2(2202, 773)
 
 [node name="PageTemplate6" parent="MasterMaster/CollectibleMaster" unique_id=99280941 instance=ExtResource("5_k8o7c")]
 position = Vector2(2417, 777)
-
-[node name="PageTemplate7" parent="MasterMaster/CollectibleMaster" unique_id=1687588069 instance=ExtResource("5_k8o7c")]
-position = Vector2(2717, 442)
-
-[node name="PageTemplate8" parent="MasterMaster/CollectibleMaster" unique_id=1113710096 instance=ExtResource("5_k8o7c")]
-position = Vector2(2927, 437)
-
-[node name="PageTemplate9" parent="MasterMaster/CollectibleMaster" unique_id=1616365420 instance=ExtResource("5_k8o7c")]
-position = Vector2(3142, 441)
-
-[node name="PageTemplate10" parent="MasterMaster/CollectibleMaster" unique_id=962733658 instance=ExtResource("5_k8o7c")]
-position = Vector2(3379, 439)
-
-[node name="PageTemplate11" parent="MasterMaster/CollectibleMaster" unique_id=1345809006 instance=ExtResource("5_k8o7c")]
-position = Vector2(3589, 434)
-
-[node name="PageTemplate12" parent="MasterMaster/CollectibleMaster" unique_id=998202155 instance=ExtResource("5_k8o7c")]
-position = Vector2(3804, 438)
 
 [node name="UIMaster" type="CanvasLayer" parent="MasterMaster" unique_id=2068496854 node_paths=PackedStringArray("page_bar", "colour_grade", "hp_bar")]
 script = ExtResource("7_fvlwg")
@@ -119,6 +102,17 @@ position = Vector2(3011, 773)
 
 [node name="RightWarningSignal2" parent="MasterMaster/RightSpawnerMaster" unique_id=1868817704 instance=ExtResource("9_1741o")]
 position = Vector2(3864, 152)
+
+[node name="BreakableMaster" type="Node2D" parent="MasterMaster" unique_id=796941976]
+
+[node name="Barrel" parent="MasterMaster/BreakableMaster" unique_id=2138054321 instance=ExtResource("11_et0cn")]
+position = Vector2(2502, 435)
+
+[node name="Barrel2" parent="MasterMaster/BreakableMaster" unique_id=553127033 instance=ExtResource("11_et0cn")]
+position = Vector2(2717, 426)
+
+[node name="Barrel3" parent="MasterMaster/BreakableMaster" unique_id=1201365324 instance=ExtResource("11_et0cn")]
+position = Vector2(2919, 422)
 
 [node name="== Platforms ==" type="Node2D" parent="." unique_id=1749355582]
 

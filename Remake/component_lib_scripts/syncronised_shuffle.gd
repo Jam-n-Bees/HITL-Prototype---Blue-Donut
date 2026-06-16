@@ -25,7 +25,7 @@ func move_calc():
 	get_parent().velocity.x = level_data_r.base_velocity + player_modifier
 	
 	if !moving && player_modifier != 0 && !dashing:
-		player_modifier = move_toward(player_modifier, 0, 40)
+		player_modifier = move_toward(player_modifier, 0, 40 * get_parent().acceleration_multiplier)
 	
 	if player_modifier > max_speed_modifier:
 		player_modifier = max_speed_modifier

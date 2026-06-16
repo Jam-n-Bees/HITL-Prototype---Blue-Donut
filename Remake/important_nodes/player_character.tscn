@@ -60,9 +60,9 @@ shape = SubResource("CapsuleShape2D_s8bft")
 visible = false
 shape = SubResource("CapsuleShape2D_f3oub")
 
-[node name="SlideTackle" type="Area2D" parent="." unique_id=546619194]
+[node name="SlideTackle" type="Area2D" parent="." unique_id=546619194 groups=["PlayerAttackBox"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlideTackle" unique_id=139038695]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlideTackle" unique_id=139038695 groups=["BreakableHitBox", "PlayerAttackBox"]]
 position = Vector2(76.75, -5.25)
 shape = SubResource("RectangleShape2D_f3oub")
 
