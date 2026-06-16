@@ -27,10 +27,3 @@ func _ready() -> void:
 func initialise_hp_bar():
 	hp_bar.max_value = pc_data.player_max_hp
 	hp_bar.value = pc_data.current_hp
-
-func adjust_hp_bar():
-	hp_bar.value = pc_data.current_hp
-	print("shitting")
-	print("resource hp", pc_data.current_hp)
-	print("hp_bar value", hp_bar.value)
-	

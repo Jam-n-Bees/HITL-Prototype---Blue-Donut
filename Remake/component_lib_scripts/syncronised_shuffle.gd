@@ -2,7 +2,7 @@ extends Node2D
 
 @export var level_data_r : LevelData
 var max_speed_modifier : float = 550
-
+var dashing := false
 var player_modifier : float 
 var moving : bool = false
 
@@ -24,8 +24,8 @@ func _physics_process(delta: float) -> void:
 func move_calc():
 	get_parent().velocity.x = level_data_r.base_velocity + player_modifier
 	
-	if !moving && player_modifier != 0:
-		player_modifier = move_toward(player_modifier, 0, 40)
+	if !moving && player_modifier != 0 && !dashing:
+		player_modifier = move_toward(player_modifier, 0, 40 * get_parent().acceleration_multiplier)
 	
 	if player_modifier > max_speed_modifier:
 		player_modifier = max_speed_modifier
