@@ -33,7 +33,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	print("Acceleration : ",acceleration_multiplier, " Velocity.x : ", velocity.x)
 	if acceleration_multiplier != 1:
-		acceleration_multiplier = move_toward(acceleration_multiplier, 1, 1 * delta)
+		if acceleration_multiplier < 0:
+			acceleration_multiplier = 0
+		acceleration_multiplier = move_toward(acceleration_multiplier, 1, 0.5 * delta)
 		
 	
 	velocity.y += gravity
@@ -71,7 +73,7 @@ func _on_player_area_hit_something(area: Area2D) -> void:
 	if area.is_in_group("BreakableHitBox"):
 		velocity.x -= 1000
 		syncronised_shuffle.player_modifier -= 300
-		acceleration_multiplier = 0
+		acceleration_multiplier -= 0.5
 		
 
 func unsquish():
