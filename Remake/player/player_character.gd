@@ -17,6 +17,8 @@ var lockout : bool = false
 var dashing : bool = false
 var acceleration_multiplier : float = 1
 
+
+
 func _ready() -> void:
 	unsquish()
 	slide_tackle_area.disabled = true
@@ -31,7 +33,9 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	print("Acceleration : ",acceleration_multiplier, " Velocity.x : ", velocity.x)
+	
+
+	#print("Acceleration : ",acceleration_multiplier, " Velocity.x : ", velocity.x)
 	if acceleration_multiplier != 1:
 		if acceleration_multiplier < 0:
 			acceleration_multiplier = 0

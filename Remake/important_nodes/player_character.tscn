@@ -21,6 +21,8 @@ height = 130.0
 size = Vector2(143.5, 162.5)
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=1164801238 node_paths=PackedStringArray("input_manager", "syncronised_shuffle") groups=["Player"]]
+floor_block_on_wall = false
+floor_snap_length = 0.0
 script = ExtResource("1_f3oub")
 input_manager = NodePath("InputManager")
 syncronised_shuffle = NodePath("SyncronisedShuffle")
@@ -39,7 +41,6 @@ one_shot = true
 texture = ExtResource("4_jn36n")
 
 [node name="PCCollisionDefault" type="CollisionShape2D" parent="." unique_id=947234286]
-visible = false
 shape = SubResource("CapsuleShape2D_hdrv2")
 disabled = true
 
@@ -49,7 +50,6 @@ scale = Vector2(1, 0.5)
 texture = ExtResource("4_jn36n")
 
 [node name="PCCollisionSliding" type="CollisionShape2D" parent="." unique_id=1613323288]
-visible = false
 position = Vector2(0, 31)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_s8bft")

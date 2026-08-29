@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2s7otiw87nqu"]
 
-[ext_resource type="Script" uid="uid://bktc7xsqokc43" path="res://cannonball.gd" id="1_k1y7j"]
+[ext_resource type="Script" uid="uid://bktc7xsqokc43" path="res://projectile/cannonball.gd" id="1_k1y7j"]
 [ext_resource type="Texture2D" uid="uid://0gtkygwlnas2" path="res://box_sprites/cannon-ball-150.png" id="2_sepv1"]
 [ext_resource type="AudioStream" uid="uid://cfwuykieh6pi4" path="res://audio/snd_bombsplosion.wav" id="3_sepv1"]
 
