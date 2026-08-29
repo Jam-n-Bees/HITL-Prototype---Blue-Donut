@@ -10,7 +10,7 @@ var flicker_start : int = 0
 
 var warning_sprite_red = load("res://warning_sprites/warning red.png")
 var warning_sprite_blue = load("res://warning_sprites/warning blue.png")
-var threat = load("res://cannon_ball.tscn")
+var threat = load("res://projectile/cannon_ball.tscn")
 
 var blue : bool = false
 var active : bool = false

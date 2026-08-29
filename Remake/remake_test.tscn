@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dgg5rl4w5di8w" path="res://Remake/important_nodes/right_warning_signal_template/right_warning_signal.tscn" id="9_1741o"]
 [ext_resource type="Resource" uid="uid://dokjhfvlpex2e" path="res://Remake/resource_storage/resources/player_character_data.tres" id="9_babdn"]
 [ext_resource type="PackedScene" uid="uid://bxjovbotmr6ip" path="res://barrel.tscn" id="11_et0cn"]
+[ext_resource type="Script" uid="uid://dkv4koqpawxfs" path="res://Remake/scene_parts/camera_boundaries/camera_boundary_collision.gd" id="12_x7vq1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_32fxy"]
 friction = 0.0
@@ -32,6 +33,8 @@ pc_data = ExtResource("9_babdn")
 
 [node name="PlayerCharacter" parent="MasterMaster" unique_id=1164801238 instance=ExtResource("1_uwy1r")]
 position = Vector2(868, 483)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CameraMantle" type="CharacterBody2D" parent="MasterMaster" unique_id=1053484338]
 position = Vector2(0, 518)
@@ -158,3 +161,12 @@ one_way_collision_margin = 3.0
 [node name="ColorRect" type="ColorRect" parent="== Platforms ==/TopPlatform" unique_id=1823809506]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="CameraBoundaryCollision" type="CharacterBody2D" parent="." unique_id=1487140327]
+collision_layer = 2
+collision_mask = 0
+platform_on_leave = 2
+safe_margin = 21.218
+script = ExtResource("12_x7vq1")
+
+[node name="SyncronisedShuffle" parent="CameraBoundaryCollision" unique_id=1030609877 instance=ExtResource("1_p0a18")]
